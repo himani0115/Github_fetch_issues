@@ -1,22 +1,32 @@
 {% block content %}
 <div class="main-bg-img2" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"></div>
+
 <div class="container">
     <h3 class="main_head">Git Repo Details</h3>
     <div class="new_grp">
         <div class="new_rht">
-            <form action="/github_issues/" method ="post" enctype="multipart/form-data">
+            <form action="/github_issues/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="text" name="auth_token" class="form-control" placeholder="Auth Token"/></br></br></br>
-                <input type="text" name="username" class="form-control" placeholder="User name"/></br></br></br>
-                <input type="text" name="repo_name" class="form-control" placeholder="Repo name"/></br></br></br>
-                <input type="text" name="file_name" class="form-control" placeholder="File name"/></br></br></br>
+                <div>
+                    <select name="endpoint">
+                        <option selected="selected" disabled>Objects on page:</option>
+                                <option value="issues">Issues</option>
+                                <option value="comments">Comments</option>
+                        </select>
+                </div>
+               
+                <input type="text" name="auth_token" class="form-control" placeholder="Auth Token" /></br></br></br>
+                <input type="text" name="username" class="form-control" placeholder="User name" /></br></br></br>
+                <input type="text" name="repo_name" class="form-control" placeholder="Repo name" /></br></br></br>
+                <input type="text" name="file_name" class="form-control" placeholder="File name" /></br></br></br>
 
                 <div class="last_btn_row">
-                        <button type="submit" class="browse_btn">Fetch Git Issue</button>
-                        
+                    <button type="submit" class="browse_btn">Fetch Git Issue</button>
+
                 </div>
         </div>
         </form>
     </div>
 </div>
+
 {% endblock %}

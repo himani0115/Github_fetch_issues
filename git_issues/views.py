@@ -10,11 +10,13 @@ def home(request):
 
 def github_issues(request):
     if request.method == "POST":
+        endpoint= request.POST['endpoint']
         token = request.POST['auth_token']
         owner = request.POST['username']
         repo = request.POST['repo_name']
         file_name = request.POST['file_name']
-    query_url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+  
+    query_url = f"https://api.github.com/repos/{owner}/{repo}/" + endpoint
     params = {
         "state": "open",
     }
